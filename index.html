@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <title>Wish Snow Village</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='21' r='9' fill='%23fff'/%3E%3Ccircle cx='16' cy='10' r='6' fill='%23fff'/%3E%3Ccircle cx='16' cy='16' r='15' fill='none' stroke='%23c5524a' stroke-width='2'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Jua&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <canvas id="stage"></canvas>
+  <div id="loading">눈 내리는 마을로 가는 중…</div>
+
+  <!-- 캐릭터 머리 위 이름표 -->
+  <div id="nametag"></div>
+
+  <!-- HUD -->
+  <header id="brand" class="hud card">
+    <strong>Wish Snow Village</strong>
+    <span id="hud-nick"></span>
+  </header>
+  <button id="menu" class="hud round" aria-label="프로필 바꾸기" title="프로필 바꾸기">
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c1.5-4 4.5-6 8-6s6.500 2 8 6"/></svg>
+  </button>
+  <div id="zone" class="chip"></div>
+
+  <div id="joystick" class="hud"><div class="knob"></div></div>
+  <button id="context" class="hud">
+    <kbd>E</kbd><span id="context-label"></span>
+  </button>
+  <div id="toast" class="card"></div>
+  <div id="help" class="chip"><b>WASD</b> 이동 · <b>드래그</b> 시점 · <b>휠</b> 확대 · <b>E</b> 상호작용</div>
+
+  <!-- 닉네임 · 패딩 색 설정 -->
+  <section id="profile" class="modal">
+    <div class="sheet card">
+      <h1 id="profile-title"></h1>
+      <p class="sub">마을에서 쓸 이름과 패딩 색을 골라 주세요.</p>
+      <label class="field">
+        <span class="cap">닉네임</span>
+        <div class="nick-row">
+          <input id="nick-input" type="text" autocomplete="off" spellcheck="false" />
+          <span id="nick-count"></span>
+          <button id="nick-reroll" type="button" title="랜덤 닉네임 다시 만들기" aria-label="랜덤 닉네임 다시 만들기">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11a8 8 0 1 0-2.300 6.200"/><path d="M20 4v7h-7"/></svg>
+          </button>
+        </div>
+        <span id="nick-error"></span>
+      </label>
+      <div class="field">
+        <span class="cap">패딩 색</span>
+        <div id="swatches"></div>
+      </div>
+      <button id="profile-done" class="primary" type="button"></button>
+    </div>
+  </section>
+
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>
